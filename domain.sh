@@ -94,8 +94,8 @@ function php_fpm_add_user {
         sed -i 's/^;listen.mode =.*/listen.mode = 0660/' /etc/php5/fpm/pool.d/$DOMAIN_OWNER.conf
 
        if [ $USE_NGINX_ORG_REPO = "yes" ]; then
-            sed -i 's/^;listen.owner =.*/listen.owner = nginx/' /etc/php5/fpm/pool.d/$DOMAIN_OWNER.conf
-            sed -i 's/^;listen.group =.*/listen.group = nginx/' /etc/php5/fpm/pool.d/$DOMAIN_OWNER.conf
+            sed -i 's/^listen.owner =.*/listen.owner = nginx/' /etc/php5/fpm/pool.d/$DOMAIN_OWNER.conf
+            sed -i 's/^listen.group =.*/listen.group = nginx/' /etc/php5/fpm/pool.d/$DOMAIN_OWNER.conf
         else
             sed -i 's/^;listen.owner =.*/listen.owner = www-data/' /etc/php5/fpm/pool.d/$DOMAIN_OWNER.conf
             sed -i 's/^;listen.group =.*/listen.group = www-data/' /etc/php5/fpm/pool.d/$DOMAIN_OWNER.conf
